@@ -1,0 +1,820 @@
+/* Header */
+.gallery-header {
+    padding-top: 70px;
+    /* Reduced padding - moved header higher */
+    padding-bottom: var(--space-lg);
+    text-align: center;
+    /* Centered heading and subtitle */
+}
+
+.gallery-title {
+    font-size: 4.5rem;
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0.1em;
+    color: var(--color-accent-gold);
+}
+
+.section__subtitle {
+    font-size: 1.1rem;
+    /* Bigger than filter tabs but smaller than heading */
+    color: var(--color-text-muted);
+}
+
+/* Filters */
+.gallery-filters {
+    margin-top: 48px;
+    /* Generous breathing room from subtitle */
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    /* Filters sit directly on grid */
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    /* Smaller font for better distinction */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    padding-bottom: 4px;
+    position: relative;
+    padding-left: 0;
+    /* Remove default padding since it is left aligned */
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: var(--color-accent-gold);
+}
+
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-accent-gold);
+}
+
+/* Grid System */
+.gallery-container {
+    padding: 0 var(--space-xl) var(--space-4xl);
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Masonry Layout using CSS Columns */
+.gallery-grid {
+    column-count: 1;
+    /* Mobile default */
+    column-gap: var(--space-md);
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+    padding-bottom: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid {
+        column-count: 3;
+    }
+}
+
+.gallery-item {
+    break-inside: avoid;
+    /* Prevent items from splitting across columns */
+    margin-bottom: var(--space-md);
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    /* Added subtle rounded corners */
+    overflow: hidden;
+    background-color: transparent;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.gallery-item.hidden {
+    display: none;
+    /* Hide filtered items */
+}
+
+/* Card Styles */
+.gallery-card {
+    position: relative;
+    width: 100%;
+    /* No fixed aspect ratio - let image height define card */
+    overflow: hidden;
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* No max-height - let images display at natural aspect ratio */
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Base state: Static relative image to define height */
+.card-image:first-child {
+    position: relative;
+    opacity: 1;
+    /* Ensure first image is visible for layout */
+}
+
+/* Active state for toggling */
+.card-image.card-image--active {
+    opacity: 1;
+    z-index: 2;
+    position: relative;
+    /* It must be relative to take up space */
+}
+
+/* Ensure non-active images don't take up layout space but stay ready */
+.card-image:not(.card-image--active) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+}
+
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--space-lg);
+    background: linear-gradient(to top,
+            rgba(10, 10, 10, 0.95) 0%,
+            rgba(10, 10, 10, 0.6) 50%,
+            transparent 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.gallery-item:hover .card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-collection,
+.card-series {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--space-xs);
+    opacity: 0.9;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: var(--space-2xs);
+    line-height: 1.1;
+}
+
+.card-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 300;
+    margin-top: var(--space-xs);
+    padding-top: var(--space-xs);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+/* Motion Badge styles moved to bottom of file - Film Strip design */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-title {
+        font-size: var(--font-size-3xl);
+    }
+}
+
+/* ========== Real Image Styles ========== */
+
+.card-image--active {
+    opacity: 1;
+}
+
+.gallery-card:hover .card-image--active {
+    transform: scale(1.03);
+}
+
+/* Collection Tag */
+.card-collection {
+    font-size: var(--font-size-xs);
+    color: var(--color-accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-xs);
+    transform: translateY(10px);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .card-collection {
+    transform: translateY(0);
+}
+
+/* Series Label (ENCHANTEUR) - Hover Only */
+.card-series {
+    font-size: 0.65rem;
+    color: var(--color-cream-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-sm);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s;
+}
+
+.gallery-item:hover .card-series {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Feature Note (Magazine) */
+.card-note {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-sm);
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.2s;
+}
+
+.gallery-item:hover .card-note {
+    opacity: 1;
+}
+
+/* Motion Badge - Editorial Film Strip */
+.motion-badge {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 24px;
+    height: 18px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    box-shadow: none;
+    z-index: 5;
+    /* Film strip perforations simulation */
+    background-image: linear-gradient(to right,
+            transparent 20%,
+            rgba(255, 255, 255, 0.7) 20%,
+            rgba(255, 255, 255, 0.7) 25%,
+            transparent 25%,
+            transparent 45%,
+            rgba(255, 255, 255, 0.7) 45%,
+            rgba(255, 255, 255, 0.7) 55%,
+            transparent 55%,
+            transparent 75%,
+            rgba(255, 255, 255, 0.7) 75%,
+            rgba(255, 255, 255, 0.7) 80%,
+            transparent 80%);
+    background-size: 100% 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: flicker 3s infinite;
+}
+
+.motion-badge::before,
+.motion-badge::after {
+    content: none;
+    /* Remove any pseudo-elements causing artifacts */
+    display: none;
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    52% {
+        opacity: 0.6;
+    }
+
+    54% {
+        opacity: 1;
+    }
+}
+
+/* ========== PAINTING DETAIL MODAL ========== */
+
+/* Backdrop with blur */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Card */
+.modal-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 1150px;
+    width: 95%;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+/* Matte paper texture overlay - details side only */
+.modal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 0 16px 16px 0;
+}
+
+.modal-backdrop.active .modal-card {
+    transform: scale(1) translateY(0);
+}
+
+/* Close Button - Hidden on desktop, shown on mobile */
+.modal-close-btn {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    display: none;
+    /* Hidden on desktop - use click outside or ESC */
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Left: Painting */
+.modal-painting {
+    position: relative;
+    background: #141414;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.modal-painting-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: var(--space-lg);
+    transition: opacity 0.5s ease, transform 0.4s ease;
+}
+
+.modal-painting:hover .modal-painting-img {
+    transform: scale(1.03);
+}
+
+.modal-toggle-hint {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-painting:hover .modal-toggle-hint {
+    opacity: 1;
+}
+
+/* Right: Details */
+.modal-details {
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    overflow-y: auto;
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: var(--space-xs);
+    line-height: 1.2;
+}
+
+.modal-collection {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-gold);
+    margin-bottom: var(--space-lg);
+}
+
+.modal-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.modal-separator {
+    color: var(--color-text-muted);
+    opacity: 0.5;
+}
+
+/* Horizontal Nav Tabs */
+.modal-tabs {
+    display: flex;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--space-sm);
+}
+
+.modal-tab {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0;
+    padding-bottom: var(--space-xs);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.modal-tab:hover {
+    color: var(--color-white);
+}
+
+.modal-tab.active {
+    color: var(--color-accent-gold);
+}
+
+.modal-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--space-sm) - 1px);
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent-gold);
+}
+
+/* Grayed out state for unavailable context */
+.modal-tab.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.modal-tab.disabled:hover {
+    color: var(--color-text-muted);
+}
+
+/* Tab Content */
+.modal-tab-content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Scroll fade gradient - hints at more content */
+.modal-tab-content::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(26, 26, 26, 1) 0%, transparent 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: block;
+    margin-top: -60px;
+}
+
+.modal-tab-content.has-scroll::after {
+    opacity: 1;
+}
+
+.modal-tab-content.at-bottom::after {
+    opacity: 0;
+}
+
+.modal-tab-panel {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-tab-panel.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal-description,
+.modal-context {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-cream);
+    margin-bottom: var(--space-lg);
+}
+
+/* Credits section - below meta, above tabs */
+.modal-credits {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: var(--space-lg);
+}
+
+.modal-credits:empty {
+    display: none;
+    margin: 0;
+}
+
+.modal-credits>span {
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.modal-credits>span:last-child {
+    margin-bottom: 0;
+}
+
+.credit-value {
+    color: var(--color-accent-gold);
+    font-style: normal;
+}
+
+/* Mobile Responsive - Filters */
+@media (max-width: 768px) {
+    .gallery-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: var(--space-sm);
+        margin-left: calc(-1 * var(--space-xl));
+        margin-right: calc(-1 * var(--space-xl));
+        padding-left: var(--space-xl);
+        padding-right: var(--space-xl);
+    }
+
+    .gallery-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: var(--space-xs) 0;
+        /* Larger touch target */
+    }
+
+    .gallery-header {
+        padding-top: 50px;
+    }
+
+    .gallery-container {
+        padding: 0 var(--space-lg) var(--space-2xl);
+    }
+}
+
+/* Mobile Responsive - Modal */
+@media (max-width: 768px) {
+    .modal-backdrop {
+        padding: var(--space-sm);
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .modal-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: auto;
+        max-height: none;
+        width: 100%;
+        margin: var(--space-md) 0;
+        border-radius: 12px;
+    }
+
+    /* Paper texture covers full width on mobile */
+    .modal-card::before {
+        width: 100%;
+        top: 50%;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .modal-painting {
+        width: 100%;
+        min-height: 45vh;
+        max-height: 50vh;
+    }
+
+    .modal-painting-img {
+        width: 100%;
+        height: 100%;
+        max-height: 50vh;
+        padding: var(--space-md);
+    }
+
+    .modal-toggle-hint {
+        opacity: 1;
+        font-size: 0.6rem;
+        bottom: var(--space-md);
+    }
+
+    .modal-details {
+        padding: var(--space-lg);
+        min-height: auto;
+        overflow-y: visible;
+    }
+
+    .modal-title {
+        font-size: 1.6rem;
+        margin-bottom: var(--space-2xs);
+    }
+
+    .modal-collection {
+        font-size: 0.7rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .modal-meta {
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .modal-credits {
+        font-size: 0.7rem;
+    }
+
+    /* Show close button on mobile */
+    .modal-close-btn {
+        display: flex;
+    }
+
+    .modal-tabs {
+        gap: var(--space-md);
+    }
+
+    .modal-tab {
+        font-size: 0.7rem;
+        padding: var(--space-xs) 0;
+        /* Larger touch target */
+    }
+
+    .modal-tab-content {
+        max-height: 40vh;
+        overflow-y: auto;
+    }
+
+    .modal-description,
+    .modal-context {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .modal-card {
+        margin: var(--space-sm) 0;
+    }
+
+    .modal-painting {
+        min-height: 35vh;
+        max-height: 40vh;
+    }
+
+    .modal-painting-img {
+        max-height: 40vh;
+    }
+
+    .modal-title {
+        font-size: 1.4rem;
+    }
+
+    .modal-details {
+        padding: var(--space-md);
+    }
+
+    .modal-tab-content {
+        max-height: 35vh;
+    }
+}

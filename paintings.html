@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Gallery of digital paintings exploring the duality of human emotion through masked and unmasked portraits.">
+
+    <title>Paintings Gallery | OLALEMI</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav__logo">OLALEMI</a>
+        <ul class="nav__links">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="paintings.html" class="nav__link active">Paintings</a></li>
+            <li><a href="jewelry.html" class="nav__link">Jewelry</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Gallery Header -->
+    <header class="gallery-header">
+        <div class="container">
+            <h1 class="gallery-title">MY COLLECTION</h1>
+            <p class="section__subtitle mb-xl">The faces we show the world, and the emotions that lie beneath.</p>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="renaissance">Renaissance</button>
+                <button class="filter-btn" data-filter="renaissance-ii">Renaissance II</button>
+                <button class="filter-btn" data-filter="masked-menace">Masked Menace</button>
+                <button class="filter-btn" data-filter="gifs">GIFs</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Grid -->
+    <main class="gallery-container">
+        <div class="gallery-grid" id="galleryGrid">
+
+            <!-- ========== RENAISSANCE COLLECTION ========== -->
+
+            <!-- The Expressionist (Renaissance) -->
+            <div class="gallery-item" data-id="the-expressionist" data-collection="renaissance"
+                data-title="The Expressionist"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/The expressionist Masked.jpg"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/The Expressionist Unmasked.JPG"
+                data-size="2800 × 3840" data-year="2022" data-exhibited="Artist Commune, Lagos 2023"
+                data-description="Wearing a gesture of tales, the expressionist.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The expressionist Masked.jpg"
+                            alt="The Expressionist - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Expressionist Unmasked.JPG"
+                            alt="The Expressionist - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">The Expressionist</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controlled Chaos (Renaissance) -->
+            <div class="gallery-item" data-id="controlled-chaos" data-collection="renaissance"
+                data-title="Controlled Chaos"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/Controlled Chaos Masked.png"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/Controlled Chaos Unmasked.png"
+                data-size="2200 × 3200" data-year="2025"
+                data-description="The chaos is obvious, but what you're really seeing is restraint.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Controlled Chaos Masked.png"
+                            alt="Controlled Chaos - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Controlled Chaos Unmasked.png"
+                            alt="Controlled Chaos - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">Controlled Chaos</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- El Santo (Renaissance) -->
+            <div class="gallery-item" data-id="el-santo" data-collection="renaissance" data-title="El Santo"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/El Santo Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/El Santo Unmasked.png"
+                data-size="2800 × 3840" data-year="2023" data-exhibited="Artist Commune, Lagos 2023"
+                data-description="Under the cover of darkness<br>looking beyond the enveloping dark void<br>appears a crucifix — wielding saint<br>her face wears a sadness<br>that stares deep at her defeat<br>telling a tale of how she became the haunted.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/El Santo Masked.JPG"
+                            alt="El Santo - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/El Santo Unmasked.png"
+                            alt="El Santo - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">El Santo</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Godfather (Renaissance) -->
+            <div class="gallery-item" data-id="godfather" data-collection="renaissance" data-title="Godfather"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/Godfather Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/Godfather Unmasked.PNG"
+                data-size="2661 × 4167" data-year="2024"
+                data-description="Like a puppeteer orchestrating a dance of controlled chaos, the subtle movements of expression draw you into a reflective odyssey. Here, authority whispers, artistry seamlessly intertwines, and one experiences the unspoken harmony between power and chaos!">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Godfather Masked.JPG"
+                            alt="Godfather - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Godfather Unmasked.PNG"
+                            alt="Godfather - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">Godfather</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LONGSHOT (Renaissance) -->
+            <div class="gallery-item" data-id="longshot" data-collection="renaissance" data-title="LONGSHOT"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/LONGSHOT Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/LONGSHOT unmasked.PNG"
+                data-size="2800 × 3840" data-year="2023"
+                data-description="This is an ode to my darkest hour; A tribute to the spirit, unyielding and strong. A tale of audacity etched into every stroke, birthed from pursuit of dreams where the odds are stacked impossibly high.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/LONGSHOT Masked.JPG"
+                            alt="LONGSHOT - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/LONGSHOT unmasked.PNG"
+                            alt="LONGSHOT - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">LONGSHOT</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mesmerized - GIF -> Unmasked -> Masked (Renaissance) -->
+            <div class="gallery-item" data-id="mesmerized" data-collection="renaissance gifs" data-title="Mesmerized"
+                data-is-gif="true" data-gif="assets/paintings/ART COLLECTION/RENAISSANCE/Mesmerized.GIF"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/Mesmerized Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/Mesmerized Unmasked.JPG"
+                data-size="2500 × 3500" data-year="2023" data-featured="SuboArt Magazine, Lisbon, Portugal"
+                data-exhibited="Artist Commune, Lagos 2023"
+                data-description="<em>Mesmerized</em> by the timeless tunnel's allure,<br>I peer within,<br>my senses keen and pure.<br>Every doubt, every uncertainty unfurls,<br>As my jaws drop, astonishment swirls,<br>I gaze upon the dreams and fears once held,<br>And find myself bewitched, completely compelled.<br>The tunnel's depths hold secrets untold,<br>A journey through time, a story to unfold.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <!-- Initial State: GIF (Autoplay) -->
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Mesmerized.GIF"
+                            alt="Mesmerized - Animated" class="card-image card-image--active" data-state="gif">
+                        <!-- State 2: Unmasked Static -->
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Mesmerized Unmasked.JPG"
+                            alt="Mesmerized - Unmasked" class="card-image" data-state="unmasked">
+                        <!-- State 3: Masked Static -->
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Mesmerized Masked.JPG"
+                            alt="Mesmerized - Masked" class="card-image" data-state="masked">
+                        <span class="motion-badge"></span>
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">Mesmerized</h3>
+                            <span class="card-note">SuboArt Magazine, Lisbon, Portugal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price of High (Renaissance) -->
+            <div class="gallery-item" data-id="price-of-high" data-collection="renaissance" data-title="Price of High"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/Price of High Masked.JPEG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/Price of High Unmasked.png"
+                data-size="2800 × 3840" data-year="2023" data-exhibited="Artist Commune, Lagos 2023"
+                data-description="Have I not paid enough?<br>What price has to be paid to get high?<br>Whatever the cost is, the price is paid for in full.<br>What happens when you pay the price, and you don't get high?">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Price of High Masked.JPEG"
+                            alt="Price of High - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/Price of High Unmasked.png"
+                            alt="Price of High - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">Price of High</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Centurion Guardian (Renaissance) -->
+            <div class="gallery-item" data-id="the-centurion-guardian" data-collection="renaissance"
+                data-title="The Centurion Guardian"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/The Centurion Guardian Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/The Centurion Guardian Unmasked.JPEG"
+                data-size="2550 × 3300" data-year="2023"
+                data-description="Her focus never falters nor wavers,<br>As she readies for the coming fight.<br>She is sworn to defend this folklore,<br>Her face tells tales of a hardened past,<br>Of battles fought and battles won.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Centurion Guardian Masked.JPG"
+                            alt="The Centurion Guardian - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Centurion Guardian Unmasked.JPEG"
+                            alt="The Centurion Guardian - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">The Centurion Guardian</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Messenger (Renaissance) - NO UNMASKED -->
+            <div class="gallery-item" data-id="the-messenger" data-collection="renaissance" data-title="The Messenger"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/The Messenger Masked.JPG" data-unmasked=""
+                data-size="2800 × 3840" data-year="2022" data-exhibited="NFT NYC 2023, Artist Commune, Lagos 2023"
+                data-description="<em>The messenger</em><br>deep into an endless cold night,<br>comes forth a bearer of whispers,<br>a messenger singing hymns of the rebirth.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Messenger Masked.JPG"
+                            alt="The Messenger - Masked" class="card-image card-image--active">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">The Messenger</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Outlaw (Renaissance) -->
+            <div class="gallery-item" data-id="the-outlaw" data-collection="renaissance" data-title="The Outlaw"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/The Outlaw Masked.jpg"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/The Outlaw Unmasked.JPG"
+                data-size="2550 × 3300" data-year="2023" data-exhibited="Artist Commune, Lagos 2023"
+                data-description="A villain emerges in this story,<br>an outlaw,<br>a defiant aura of fright,<br>a dangerous soul, wild and dark.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Outlaw Masked.jpg"
+                            alt="The Outlaw - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Outlaw Unmasked.JPG"
+                            alt="The Outlaw - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">The Outlaw</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Reaper (Renaissance) -->
+            <div class="gallery-item" data-id="the-reaper" data-collection="renaissance" data-title="The Reaper"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/The Reaper Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/The Reaper Unmasked.JPG"
+                data-size="2800 × 3840" data-year="2023" data-exhibited="Artist Commune, Lagos 2023"
+                data-description="With ferocious gaze,<br>the reaper rips wandering soul apart,<br>feasting on them,<br>while relentless in the pursuit of its next prey.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Reaper Masked.JPG"
+                            alt="The Reaper - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Reaper Unmasked.JPG"
+                            alt="The Reaper - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">The Reaper</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Silent Observer (Renaissance) -->
+            <div class="gallery-item" data-id="the-silent-observer" data-collection="renaissance"
+                data-title="The Silent Observer"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE/The Silent Observer Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE/The Silent Observer Unmasked.JPG"
+                data-size="2550 × 3300" data-year="2023"
+                data-description="Eavesdropping through every passing moment with obscurity and uncertainty, my inner chatter scream as those dotting eyes hover.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Silent Observer Masked.JPG"
+                            alt="The Silent Observer - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE/The Silent Observer Unmasked.JPG"
+                            alt="The Silent Observer - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance</span>
+                            <h3 class="card-title">The Silent Observer</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ========== RENAISSANCE II COLLECTION ========== -->
+
+            <!-- Top Dog (Renaissance II) -->
+            <div class="gallery-item" data-id="top-dog" data-collection="renaissance-ii" data-title="Top Dog"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE II/Top Dog Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE II/Top Dog Unmasked.JPEG"
+                data-size="2500 × 3285" data-year="2023"
+                data-description="Becoming more, comes at a price! How much you're willing to pay, is a tale told by only those who wear their battle cry boldly. In this land you can evolve, thrive with your deep roots. It becomes grueling and harsh with the passing of time. But amidst the shadows and trials, a flicker ignites, a spark of resilience, refusing to bow to the night. A testament to strength, and a triumph over fear.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE II/Top Dog Masked.JPG"
+                            alt="Top Dog - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE II/Top Dog Unmasked.JPEG"
+                            alt="Top Dog - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance II</span>
+                            <h3 class="card-title">Top Dog</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enchanteur I (Renaissance II - ENCHANTEUR Series) -->
+            <div class="gallery-item" data-id="enchanteur-i" data-collection="renaissance-ii" data-series="enchanteur"
+                data-title="Enchanteur I"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur I Masked.PNG"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur I Unmasked.jpg"
+                data-size="2800 × 3840" data-year="2023" data-featured="SuboArt Magazine, Lisbon, Portugal"
+                data-description="I can't keep my eyes off this piece,<br>that stare seems to watch like it's trying to tell me something,<br>a language written in whispers. With every stare, you're enchanted.<br>He is the <em>Enchanteur</em>, His eyes are like pools of mystery, drawing you deeper into his spell.<br>He knows your secrets and sees your desires; He whispers them back to you in his creation.<br>While he leaves you entranced in his beauty.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <!-- Initial State: Masked (Standard) -->
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur I Masked.PNG"
+                            alt="Enchanteur I - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur I Unmasked.jpg"
+                            alt="Enchanteur I - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance II</span>
+                            <span class="card-series">ENCHANTEUR SERIES</span>
+                            <h3 class="card-title">Enchanteur I</h3>
+                            <span class="card-note">SuboArt Magazine, Lisbon, Portugal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enchanteur II (Renaissance II - ENCHANTEUR Series) -->
+            <div class="gallery-item" data-id="enchanteur-ii" data-collection="renaissance-ii" data-series="enchanteur"
+                data-title="Enchanteur II"
+                data-masked="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur II Masked.png"
+                data-unmasked="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur II Unmasked.JPG"
+                data-size="2800 × 3840" data-year="2023" data-featured="SuboArt Magazine, Lisbon, Portugal"
+                data-description="A feminine mystique with imperfections concealed from the gazing eye,<br>Yet they kindle the fire, the strength to defy.<br>Every stare, an invitation to explore,<br>Eyes that mirror the secrets of her soul,<br>A gaze so profound, it beckons, it cajoles.<br>For in her stare, a narrative unfolds,<br>A story of strength, of tales untold.<br>An embodiment of elegance, guarding battles won,<br>An enchantress of grace and hidden might,<br>Concealing stories, resilient and bright.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur II Masked.png"
+                            alt="Enchanteur II - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/RENAISSANCE II/ENCHANTEUR Series/Enchanteur II Unmasked.JPG"
+                            alt="Enchanteur II - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-collection">Renaissance II</span>
+                            <span class="card-series">ENCHANTEUR SERIES</span>
+                            <h3 class="card-title">Enchanteur II</h3>
+                            <span class="card-note">SuboArt Magazine, Lisbon, Portugal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ========== MASKED MENACE COLLECTION ========== -->
+
+            <!-- Masked Menace GIF (Masked Menace) - NO UNMASKED -->
+            <div class="gallery-item" data-id="masked-menace" data-collection="masked-menace gifs"
+                data-title="Masked Menace" data-is-gif="true"
+                data-masked="assets/paintings/ART COLLECTION/MASKED MENACE/Masked menace.GIF" data-unmasked=""
+                data-size="2800 × 3420" data-year="2023"
+                data-description="<em>Masked Menace</em> is a title that emphasizes the dark and ominous quality of the artwork. The word <em>menace</em> suggests that there is something threatening or dangerous about the character, which is reinforced by the description of the skull mask and the overall tone of the painting.<br><br>The word <em>&quot;masked&quot;</em> adds another layer of meaning to the title, as it suggests that the character is hiding his true identity or intentions behind the mask. Masks are often used in art and literature to represent deception, mystery, or the duality of human nature. In this case, the mask may be seen as a symbol of the character's hidden motives or intentions, which are hinted at but not fully revealed in the artwork.<br><br>Overall, <em>Masked Menace</em> is a title that captures the dark, mysterious, and threatening qualities of the artwork, while also suggesting deeper layers of meaning and symbolism.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/MASKED MENACE/Masked menace.GIF"
+                            alt="Masked Menace - Animated" class="card-image card-image--active">
+                        <span class="motion-badge"></span>
+                        <div class="card-overlay">
+                            <span class="card-collection">Masked Menace</span>
+                            <h3 class="card-title">Masked Menace</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REBEL GIF (Masked Menace) -->
+            <div class="gallery-item" data-id="rebel" data-collection="masked-menace gifs" data-title="REBEL"
+                data-is-gif="true" data-masked="assets/paintings/ART COLLECTION/MASKED MENACE/REBEL.gif"
+                data-unmasked="assets/paintings/ART COLLECTION/MASKED MENACE/rebel Unmasked.JPEG"
+                data-size="2550 × 3300" data-year="2023"
+                data-description="An obligation to be true to oneself. A debt that needs to be repaid. For a lack of settlement within leads to self-destruction. Rage on at every instance that aims to confine. Be a rebel of your true and complete self. This artwork is an ode to the unapologetic. It beckons viewers to question, to challenge, and to find solace in the beautifully dissonant symphony of their own rebellions. REBEL is an invitation to embrace the facets that make us unique, to revel in the artistic defiance that reshapes our world, and to recognize that within the clash of contrasts, we discover the most profound truths about ourselves. In every brushstroke, REBEL roars with the vibrancy of identity, the audacity of artistic innovation, and the resolute courage to stand apart.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/MASKED MENACE/REBEL.gif" alt="REBEL - Animated"
+                            class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/MASKED MENACE/rebel Unmasked.JPEG"
+                            alt="REBEL - Unmasked" class="card-image">
+                        <span class="motion-badge"></span>
+                        <div class="card-overlay">
+                            <span class="card-collection">Masked Menace</span>
+                            <h3 class="card-title">REBEL</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ========== STANDALONE PIECES ========== -->
+
+            <!-- God is a Woman (Standalone) -->
+            <div class="gallery-item" data-id="god-is-a-woman" data-collection="" data-title="God is a Woman"
+                data-masked="assets/paintings/ART COLLECTION/God is a Woman Masked.JPG"
+                data-unmasked="assets/paintings/ART COLLECTION/God is a Woman Unmasked.JPG" data-size="2550 × 3000"
+                data-year="2024"
+                data-description="She was created from a rib cage, it is her genesis, her humble beginning. A beautiful creation whose perfect imperfection soils from the very smell of her existence to the strand of her dark hair, resolute with solid beliefs that are unfazed against high odds, her beautiful soul gazes on us beings and hypnotizes us with her gorgeousness. She is bright, alluring and assertive. Her dominance is undeniable as her body generates a desire only her hormones can sense. Her body, the beauty and the pain she bears are unparalleled. But, her duty as a bearer of life makes her a god. She is a Woman, she is a god, God is a Woman.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/God is a Woman Masked.JPG"
+                            alt="God is a Woman - Masked" class="card-image card-image--active">
+                        <img src="assets/paintings/ART COLLECTION/God is a Woman Unmasked.JPG"
+                            alt="God is a Woman - Unmasked" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">God is a Woman</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pain (Standalone) -->
+            <div class="gallery-item" data-id="pain" data-collection="" data-title="Pain"
+                data-masked="assets/paintings/ART COLLECTION/Pain.JPEG" data-unmasked="" data-size="8000 × 8000"
+                data-year="2022"
+                data-description="If this pain breaks me - all that is left is fleeting memory of being whole, fading remembrance of my resolve, with each hurting moment, I've been torn to pieces, shredded of every healing wall put up, fighting every sting of pain while hoping to get stronger, patiently waiting to be sew together. But what if I can't outlast this hurt? What if I don't get better? What if my wounded heart fails to heal? Here I lay deformed of courage and the will to push on, maybe this is what I need to begin a new chapter. It won't be long now, whatever comes after this feels eternity away. Death to the pain that broke me.">
+                <div class="gallery-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paintings/ART COLLECTION/Pain.JPEG" alt="Pain"
+                            class="card-image card-image--active">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Pain</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">
+                    &copy; 2024 OLALEMI. All rights reserved.
+                </p>
+                <div class="footer__links">
+                    <a href="#" class="footer__link">Instagram</a>
+                    <a href="#" class="footer__link">Twitter</a>
+                    <a href="mailto:contact@artist.com" class="footer__link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Painting Detail Modal -->
+    <div class="modal-backdrop" id="paintingModal">
+        <div class="modal-card">
+            <!-- Close button -->
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+            <!-- Left: Painting -->
+            <div class="modal-painting">
+                <img src="" alt="" class="modal-painting-img" id="modalPaintingImg">
+                <div class="modal-toggle-hint">Click to toggle</div>
+            </div>
+            <!-- Right: Details -->
+            <div class="modal-details">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <span class="modal-collection" id="modalCollection"></span>
+                <div class="modal-meta">
+                    <span class="modal-size" id="modalSize"></span>
+                    <span class="modal-separator">·</span>
+                    <span class="modal-year" id="modalYear"></span>
+                </div>
+                <!-- Credits (Featured/Exhibited) - shown below meta -->
+                <div class="modal-credits" id="modalCredits"></div>
+                <!-- Horizontal Nav Toggle -->
+                <div class="modal-tabs">
+                    <button class="modal-tab active" data-tab="description">Description</button>
+                    <button class="modal-tab" data-tab="context" id="contextTab">Context</button>
+                </div>
+                <!-- Tab Content -->
+                <div class="modal-tab-content">
+                    <div class="modal-tab-panel active" id="descriptionPanel">
+                        <p class="modal-description" id="modalDescription"></p>
+                    </div>
+                    <div class="modal-tab-panel" id="contextPanel">
+                        <p class="modal-context" id="modalContext"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/gallery.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

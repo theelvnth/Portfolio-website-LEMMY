@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Digital artist and 3D jewelry CAD designer exploring the duality of human emotion through masked and unmasked portraits.">
+
+    <title>Artist Portfolio | Digital Art & 3D Jewelry Design</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav__logo">OLALEMI</a>
+        <ul class="nav__links">
+            <li><a href="index.html" class="nav__link active">Home</a></li>
+            <li><a href="paintings.html" class="nav__link">Paintings</a></li>
+            <li><a href="jewelry.html" class="nav__link">Jewelry</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero__background">
+            <!-- The Expressionist (unmasked) will be placed here -->
+            <img src="assets/paintings/landing page.png" alt="OLALEMI - Digital Portrait" class="hero__image"
+                id="heroImage">
+            <div class="hero__overlay"></div>
+        </div>
+
+        <div class="hero__content">
+            <h1 class="hero__title">
+                RENAISSANCE
+            </h1>
+            <p class="hero__subtitle">
+                Exploring the duality of human expression — the face we show the world,
+                and the emotions that lie beneath the surface.
+            </p>
+            <a href="paintings.html" class="btn btn--primary">View Gallery</a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-indicator__arrow"></div>
+        </div>
+    </section>
+
+    <!-- Featured Work Preview -->
+    <section class="section section--featured">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Featured Work</h2>
+                <p class="section__subtitle">A glimpse into the collection</p>
+            </header>
+
+            <div class="featured-grid" id="featuredGrid">
+                <!-- Featured works will be dynamically loaded or added here -->
+                <p class="text-muted" style="text-align: center;">
+                    Featured artwork previews coming soon...
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artist Statement Preview -->
+    <section class="section section--statement">
+        <div class="container">
+            <div class="statement-content">
+                <h2 class="section__title">The Philosophy</h2>
+                <p class="statement-text">
+                    Each portrait exists in two states: the <strong class="text-gold">unmasked</strong> —
+                    the composed exterior we present to the world — and the <strong
+                        class="text-terracotta">masked</strong> —
+                    where abstract neoexpressionism reveals the hidden emotions beneath the surface.
+                </p>
+                <p class="statement-text">
+                    The skull, ever-present in my work, serves not as a symbol of death,
+                    but as the universal foundation beneath every face — the truth we all share.
+                </p>
+                <a href="about.html" class="btn btn--outline mt-xl">Read Full Statement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">
+                    &copy; 2024 OLALEMI. All rights reserved.
+                </p>
+                <div class="footer__links">
+                    <a href="#" class="footer__link">Instagram</a>
+                    <a href="#" class="footer__link">Twitter</a>
+                    <a href="mailto:contact@artist.com" class="footer__link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
