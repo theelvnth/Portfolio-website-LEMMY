@@ -6,6 +6,7 @@
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
+    initHamburger();
     initHero();
     initScrollAnimations();
 });
@@ -13,20 +14,43 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Navigation functionality
  * - Adds 'scrolled' class when page is scrolled
- * - Handles smooth transitions
+ * - Hide on scroll down, show on scroll up (landing page desktop only)
  */
 function initNavigation() {
     const nav = document.getElementById('nav');
 
     if (!nav) return;
 
+    // Detect if we're on the landing page (has hero section)
+    const isLandingPage = !!document.getElementById('hero');
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+
     // Handle scroll state
     const handleScroll = () => {
-        if (window.scrollY > 50) {
+        const currentScrollY = window.scrollY;
+
+        // Scrolled background
+        if (currentScrollY > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
+
+        // Hide/show nav on scroll direction (desktop only)
+        if (window.innerWidth > 768) {
+            const scrollDelta = currentScrollY - lastScrollY;
+
+            if (scrollDelta > scrollThreshold && currentScrollY > 10) {
+                // Scrolling DOWN — hide nav
+                nav.classList.add('nav--hidden');
+            } else if (scrollDelta < -scrollThreshold) {
+                // Scrolling UP — show nav
+                nav.classList.remove('nav--hidden');
+            }
+        }
+
+        lastScrollY = currentScrollY;
     };
 
     // Throttle scroll events for performance
@@ -43,6 +67,42 @@ function initNavigation() {
 
     // Initial check
     handleScroll();
+}
+
+/**
+ * Hamburger menu for mobile navigation
+ * - Toggles full-screen overlay menu
+ * - Closes on link click, ESC key, or hamburger tap
+ * - Locks body scroll when open
+ */
+function initHamburger() {
+    const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks = document.querySelectorAll('.nav__link');
+
+    if (!hamburger || !nav) return;
+
+    // Toggle menu
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('nav--open');
+        document.body.style.overflow = nav.classList.contains('nav--open') ? 'hidden' : '';
+    });
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('nav--open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('nav--open')) {
+            nav.classList.remove('nav--open');
+            document.body.style.overflow = '';
+        }
+    });
 }
 
 /**

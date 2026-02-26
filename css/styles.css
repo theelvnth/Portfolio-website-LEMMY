@@ -165,12 +165,23 @@ a:hover {
   padding: 0 var(--space-2xl);
   background: linear-gradient(to bottom, rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0));
   z-index: var(--z-nav);
-  transition: background var(--transition-base);
+  transition: background var(--transition-base), transform 0.35s ease;
+}
+
+.nav--hidden {
+  transform: translateY(-100%);
 }
 
 .nav.scrolled {
   background: rgba(13, 13, 13, 0.98);
   backdrop-filter: blur(10px);
+}
+
+/* Remove backdrop-filter when menu is open to prevent
+   fixed-position overlay from being constrained to nav height */
+.nav.scrolled.nav--open {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .nav__logo {
@@ -180,6 +191,16 @@ a:hover {
   color: var(--color-text-primary);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo-img {
+  height: 85px;
+  width: auto;
+  display: block;
+  transform: scaleX(1.15);
+  transform-origin: left center;
 }
 
 .nav__links {
@@ -300,7 +321,7 @@ a:hover {
   min-height: 100vh;
   padding: var(--space-2xl);
   padding-top: calc(var(--nav-height) + var(--space-3xl));
-  padding-bottom: 11rem;
+  padding-bottom: var(--space-3xl);
   max-width: var(--max-width-narrow);
   opacity: 0;
   transform: translateY(30px);
@@ -321,6 +342,7 @@ a:hover {
   color: var(--color-cream-muted);
   max-width: 600px;
   margin: 0 auto var(--space-lg);
+  text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -330,10 +352,6 @@ a:hover {
 
 /* Scroll Indicator */
 .scroll-indicator {
-  position: absolute;
-  bottom: var(--space-2xl);
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -341,7 +359,8 @@ a:hover {
   color: var(--color-text-muted);
   font-size: var(--font-size-xs);
   text-transform: uppercase;
-  animation: fadeInUpCentered 1s ease forwards;
+  margin-top: var(--space-lg);
+  animation: fadeIn 1s ease forwards;
   animation-delay: 1.5s;
   opacity: 0;
   z-index: 10;
@@ -530,27 +549,134 @@ a:hover {
   margin-bottom: var(--space-xl);
 }
 
+/* ---------- Hamburger Menu (hidden on desktop) ---------- */
+.nav__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px;
+  height: 20px;
+  position: relative;
+  z-index: 1001;
+  padding: 0;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 0;
+}
+
+.nav__hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.nav__hamburger span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav__hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Hamburger → X animation */
+.nav--open .nav__hamburger span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.nav--open .nav__hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav--open .nav__hamburger span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   :root {
     --nav-height: 60px;
   }
 
+  /* --- Navigation: Hamburger + Overlay --- */
   .nav {
     padding: 0 var(--space-lg);
   }
 
+  .nav__hamburger {
+    display: block;
+    width: 22px;
+    height: 16px;
+  }
+
   .nav__links {
-    gap: var(--space-lg);
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 13, 13, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2xl);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav--open .nav__links {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .nav__link {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-xl);
+    letter-spacing: 0.15em;
+  }
+
+  .nav__link::after {
+    bottom: -6px;
+  }
+
+  /* --- Hero Section: Spacing, Sizing, Centering --- */
+  .hero {
+    min-height: 85vh;
+  }
+
+  .hero__image {
+    object-position: center 30%;
   }
 
   .hero__content {
     padding: var(--space-lg);
+    padding-top: calc(var(--nav-height) + var(--space-xl));
+    padding-bottom: var(--space-2xl);
+    text-align: center;
+    min-height: 85vh;
   }
+
+  .hero__title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  .hero__subtitle {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
 
   .section {
     padding: var(--space-3xl) var(--space-lg);
@@ -558,11 +684,11 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-  .nav__logo {
-    font-size: var(--font-size-base);
+  .hero__title {
+    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
   }
 
-  .nav__links {
-    gap: var(--space-md);
+  .hero__subtitle {
+    font-size: 0.85rem;
   }
 }

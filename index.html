@@ -24,13 +24,17 @@
 <body>
     <!-- Navigation -->
     <nav class="nav" id="nav">
-        <a href="index.html" class="nav__logo">OLALEMI</a>
-        <ul class="nav__links">
+        <a href="index.html" class="nav__logo"><img src="assets/olalemi-logo.png" alt="OLALEMI"
+                class="nav__logo-img"></a>
+        <ul class="nav__links" id="navLinks">
             <li><a href="index.html" class="nav__link active">Home</a></li>
             <li><a href="paintings.html" class="nav__link">Paintings</a></li>
             <li><a href="jewelry.html" class="nav__link">Jewelry</a></li>
             <li><a href="about.html" class="nav__link">About</a></li>
         </ul>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
     <!-- Hero Section -->
@@ -51,11 +55,10 @@
                 and the emotions that lie beneath the surface.
             </p>
             <a href="paintings.html" class="btn btn--primary">View Gallery</a>
-        </div>
-
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-indicator__arrow"></div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-indicator__arrow"></div>
+            </div>
         </div>
     </section>
 
