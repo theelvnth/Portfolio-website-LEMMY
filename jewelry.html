@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry CAD | OLALEMI Portfolio</title>
+    <meta name="description" content="3D Jewelry CAD portfolio showcasing championship rings, diamond settings, and precision jewelry design in Rhino 8.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/jewelry.css">
+</head>
+<body class="jewelry-body">
+
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+        <a href="index.html" class="nav__logo">OLALEMI</a>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav__links" id="navLinks">
+            <a href="index.html" class="nav__link">Home</a>
+            <a href="paintings.html" class="nav__link">Paintings</a>
+            <a href="jewelry.html" class="nav__link active">Jewelry</a>
+            <a href="about.html" class="nav__link">About</a>
+        </div>
+    </nav>
+
+    <!-- Gallery Landing -->
+    <section class="jewelry-page" id="jewelryPage">
+        <div class="gallery-header">
+            <h1 class="gallery-header__title">Jewelry CAD</h1>
+            <p class="gallery-header__subtitle">3D design &amp; digital craftsmanship</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Project Card: Chrome Hearts Ring -->
+            <div class="project-card" data-project="chrome-hearts">
+                <div class="project-card__viewer" id="cardViewer_0">
+                    <!-- Three.js canvas injected here -->
+                </div>
+                <div class="project-card__info">
+                    <h3 class="project-card__title">Chrome Hearts Ring</h3>
+                    <span class="project-card__category">Championship Ring · CAD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox__header">
+            <button class="lightbox__close" id="lightboxClose" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="lightbox__content" id="lightboxContent">
+            <!-- 3D Viewer -->
+            <div class="lightbox__viewer" id="lightboxViewer">
+                <div class="viewer-container" id="viewerContainer">
+                    <!-- Loading -->
+                    <div class="viewer-container__loading" id="viewerLoading">
+                        <div class="viewer-loading-spinner"></div>
+                        <span>Loading 3D model...</span>
+                    </div>
+                    <!-- Hint -->
+                    <div class="viewer-container__hint" id="viewerHint">
+                        Drag to rotate · Scroll to zoom · Right-click to pan
+                    </div>
+                    <!-- Render image fill -->
+                    <div class="image-viewer" id="imageViewer">
+                        <img id="imageViewerImg" src="" alt="Render view">
+                    </div>
+                </div>
+
+                <!-- Embedded controls -->
+                <div class="viewer-controls" id="viewerControls">
+                    <div class="viewer-controls__modes">
+                        <button class="mode-btn active" data-mode="shaded">Shaded</button>
+                        <button class="mode-btn" data-mode="wireframe">Wire</button>
+                        <button class="mode-btn" data-mode="xray">X-Ray</button>
+                    </div>
+                    <button class="viewer-controls__fullscreen" id="fullscreenBtn" aria-label="Fullscreen">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <polyline points="9 21 3 21 3 15"></polyline>
+                            <line x1="21" y1="3" x2="14" y2="10"></line>
+                            <line x1="3" y1="21" x2="10" y2="14"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Render thumbnails -->
+            <div class="render-strip" id="renderStrip">
+                <div class="render-strip__item active" data-view="3d">
+                    <div class="render-strip__3d-label">3D</div>
+                </div>
+                <div class="render-strip__item" data-view="image" data-src="assets/jewelry/chrome-hearts/renders/top-cross.png">
+                    <img src="assets/jewelry/chrome-hearts/renders/top-cross.png" alt="Top view">
+                </div>
+                <div class="render-strip__item" data-view="image" data-src="assets/jewelry/chrome-hearts/renders/front-band.png">
+                    <img src="assets/jewelry/chrome-hearts/renders/front-band.png" alt="Front band">
+                </div>
+                <div class="render-strip__item" data-view="image" data-src="assets/jewelry/chrome-hearts/renders/three-quarter.png">
+                    <img src="assets/jewelry/chrome-hearts/renders/three-quarter.png" alt="3/4 view">
+                </div>
+                <div class="render-strip__item" data-view="image" data-src="assets/jewelry/chrome-hearts/renders/fleur-de-lis.png">
+                    <img src="assets/jewelry/chrome-hearts/renders/fleur-de-lis.png" alt="Fleur de lis detail">
+                </div>
+                <div class="render-strip__item" data-view="image" data-src="assets/jewelry/chrome-hearts/renders/back-pattern.png">
+                    <img src="assets/jewelry/chrome-hearts/renders/back-pattern.png" alt="Back pattern">
+                </div>
+                <div class="render-strip__item" data-view="image" data-src="assets/jewelry/chrome-hearts/renders/bottom-interior.png">
+                    <img src="assets/jewelry/chrome-hearts/renders/bottom-interior.png" alt="Interior">
+                </div>
+            </div>
+
+            <!-- Project Info -->
+            <div class="project-info" id="projectInfo">
+                <div class="project-info__header">
+                    <h2 class="project-info__title">Chrome Hearts Ring</h2>
+                    <span class="project-info__category">Championship Ring · CAD Design</span>
+                </div>
+
+                <div class="project-info__specs">
+                    <div class="spec-row">
+                        <span class="spec-row__label">Client</span>
+                        <span class="spec-row__value">Personal Project</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-row__label">Software</span>
+                        <span class="spec-row__value">Rhino 8</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-row__label">Material</span>
+                        <span class="spec-row__value">Sterling Silver</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-row__label">Stones</span>
+                        <span class="spec-row__value">28 Baguette Diamonds</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-row__label">Year</span>
+                        <span class="spec-row__value">2025</span>
+                    </div>
+                </div>
+
+                <div class="project-info__description">
+                    <h3>About This Piece</h3>
+                    <p>A Chrome Hearts inspired championship-style ring featuring the iconic cross motif on the face, flanked by 28 baguette-cut diamonds in a channel setting. The wide shank showcases fleur de lis detailing on both sides with an intricate cross-patterned cutout on the interior — a signature Chrome Hearts hallmark.</p>
+                </div>
+
+                <div class="project-info__tags">
+                    <span class="feature-tag">3D CAD</span>
+                    <span class="feature-tag">Rhino 8</span>
+                    <span class="feature-tag">Championship Ring</span>
+                    <span class="feature-tag">Diamond Setting</span>
+                    <span class="feature-tag">Fleur de Lis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2025 OLALEMI. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="js/viewer3d.js"></script>
+    <script src="js/jewelry.js"></script>
+</body>
+</html>

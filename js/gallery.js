@@ -12,6 +12,7 @@ let paintingsData = {};
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPaintingsData();
+    initFilterToggle();
     initGalleryFilters();
     initDetailModal();
 });
@@ -27,6 +28,21 @@ async function loadPaintingsData() {
         console.error('Failed to load paintings data:', error);
         paintingsData = {};
     }
+}
+
+/**
+ * Filter toggle hamburger - slide out filters horizontally
+ */
+function initFilterToggle() {
+    const toggle = document.getElementById('filterToggle');
+    const filters = document.getElementById('galleryFilters');
+
+    if (!toggle || !filters) return;
+
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        filters.classList.toggle('filters--open');
+    });
 }
 
 /**
